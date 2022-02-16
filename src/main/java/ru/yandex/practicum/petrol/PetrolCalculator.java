@@ -1,7 +1,9 @@
+package ru.yandex.practicum.petrol;
+
 import java.util.Scanner;
 
 public class PetrolCalculator {
-    public void calculate() {
+    public void calculateLoop() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество действий => ");
         int iterationsCount = scanner.nextInt();
@@ -9,19 +11,22 @@ public class PetrolCalculator {
             System.out.print("Введите тип топлива: 1 - АИ-92, 2 - АИ-95 => ");
             int petrolType = scanner.nextInt();
             System.out.print("Введите количество литров => ");
-            double razmer = scanner.nextDouble();
-            double razmer = scanner.nextDouble();
+            double volume = scanner.nextDouble();
+         //   double volume = scanner.nextDouble();
             if (petrolType == 1) {
-                double price = new Ai92Calculator().calculate(razmer);
-                System.out.println("Стоимость " + razmer + " литров АИ-92 = " + price + "₽");
+                double price = new Ai92Calculator().calculate(volume);
+                System.out.println("Стоимость " + volume + " литров АИ-92 = " + price + "₽");
             } else if (petrolType == 2) {
-                double price = new Ai95Calculator().calculate(razmer);
-                System.out.println("Стоимость " + razmer + " литров АИ-95 = " + price + "₽");
+                double price = new Ai95Calculator().calculate(volume);
+                System.out.println("Стоимость " + volume + " литров АИ-95 = " + price + "₽");
             }
         }
     }
 
     public static void main(String[] args) {
-        new PetrolCalculator().calculate();
+     /*
+       System.out.println("Введенные аргументы:" + args);
+     */
+        new PetrolCalculator().calculateLoop();
     }
 }
